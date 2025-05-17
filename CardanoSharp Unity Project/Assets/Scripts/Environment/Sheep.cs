@@ -35,7 +35,8 @@ public class Sheep : MonoBehaviour
 
     void RandomRotate()
     {
-        float rot = Random.Range(transform.rotation.y - variation, transform.rotation.y + variation);
+        float currentY = transform.eulerAngles.y;
+        float rot = Random.Range(currentY - variation, currentY + variation);
         float dur = Random.Range(minDuration, maxDuration);
         transform.DORotate(new Vector3(0, rot, 0), dur).SetEase(Ease.Linear).Play();
     }
